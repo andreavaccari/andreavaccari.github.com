@@ -1,0 +1,15 @@
+*~
+
+# OSX
+.DS_Store
+Icon?
+
+# WINDOWS
+Thumbs.db
+Desktop.ini
+
+# INTELLIJ
+*.iml
+*.ipr
+*.iws
+.idea/

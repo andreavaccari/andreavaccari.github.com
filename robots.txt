@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /.gitignore
+Disallow: /404.html
+Disallow: /CNAME
+Disallow: /README.md
