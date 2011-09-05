@@ -26,6 +26,22 @@
       _gaq.push(['_trackPageview', page]);
       setTimeout('document.location = "' + link.href + '"', 100);
     }
+    // http://gist.github.com/1136488
+    (function($) {
+      $(function() {
+        $('a[href^="http"]:not([href*="' + document.domain + '"])').click(function(e) {
+          if ($(this).attr('target') !== '_blank') {
+            e.preventDefault();
+            (function(a) {
+              setTimeout(function() {
+                document.location = a.attr('href');
+              },300)
+            })($(this));
+          }
+          window.pageTracker ? pageTracker._trackEvent('Outbound', $(this).attr('href'), "#" + $(this).closest('[id!=""]').attr('id')) : _gaq.push(['_trackEvent', 'Outbound', $(this).attr('href'), "#" + $(this).closest('[id!=""]').attr('id')]);
+         });
+       })
+    })(jQuery)
   </script>
 </head>
 <body>
@@ -47,31 +63,38 @@
     <ul class="menu clearfix">
       <li>
         <a rel="me" href="mailto:andrea@andreavaccari.com?subject=Hi Andrea!"
-           onClick="trackLink(this, '/mail'); return false;"><img src="/static/images/icons/mail.png"></a>
+           <!--onClick="trackLink(this, '/mail'); return false;"-->
+            ><img src="/static/images/misc/mail.png"></a>
       </li>
       <li>
         <a rel="me" href="http://twitter.com/vccr"
-           onClick="trackLink(this, '/twitter'); return false;"><img src="/static/images/icons/twitter.png"></a>
+           <!--onClick="trackLink(this, '/twitter'); return false;"-->
+            ><img src="/static/images/misc/twitter.png"></a>
       </li>
       <li>
         <a rel="me" href="http://facebook.com/andvac"
-           onClick="trackLink(this, '/facebook'); return false;"><img src="/static/images/icons/facebook.png"></a>
+           <!--onClick="trackLink(this, '/facebook'); return false;"-->
+            ><img src="/static/images/misc/facebook.png"></a>
       </li>
       <li>
         <a rel="me" href="http://linkedin.com/in/andreavaccari"
-           onClick="trackLink(this, '/linkedin'); return false;"><img src="/static/images/icons/linkedin.png"></a>
+           <!--onClick="trackLink(this, '/linkedin'); return false;"-->
+            ><img src="/static/images/misc/linkedin.png"></a>
       </li>
       <li>
         <a rel="me" href="http://plus.google.com/108731905933622470331"
-           onClick="trackLink(this, '/google'); return false;"><img src="/static/images/icons/google.png"></a>
+           <!--onClick="trackLink(this, '/google'); return false;"-->
+            ><img src="/static/images/misc/google.png"></a>
       </li>
       <li>
         <a rel="me" href="http://last.fm/user/andvac"
-           onClick="trackLink(this, '/lastfm'); return false;"><img src="/static/images/icons/lastfm.png"></a>
+           <!--onClick="trackLink(this, '/lastfm'); return false;"-->
+            ><img src="/static/images/misc/lastfm.png"></a>
       </li>
       <li>
         <a rel="me" href="http://youtube.com/user/andvac"
-           onClick="trackLink(this, '/youtube'); return false;"><img src="/static/images/icons/youtube.png"></a>
+           <!--onClick="trackLink(this, '/youtube'); return false;"-->
+            ><img src="/static/images/misc/youtube.png"></a>
       </li>
     </ul>
     <div class="resume small">
@@ -79,7 +102,8 @@
     </div>
   </div>
   <a class="grid_12 noborder" href="http://glancee.com"
-     onClick="trackLink(this, '/glancee');return false;"><img class="sliced" src="/static/images/glancee.jpg"></a>
+     <!--onClick="trackLink(this, '/glancee');return false;"-->
+      ><img class="sliced" src="/static/images/glancee.jpg"></a>
   <div class="grid_6">
     <h1>Glancee</h1> is a location-based mobile app that helps you discover the hidden connections you share with the people around you.
     Glancee highlights people that have friends in common, that went to the same school you attended, that work in your same company, or
@@ -91,7 +115,8 @@
     <span class="small right">Photo by Ambrogio Bergamaschi</span>
   </div>
   <a class="grid_12 noborder" href="http://senseable.mit.edu/obama"
-     onClick="trackLink(this, '/obama');return false;"><img class="sliced" src="/static/images/obama.jpg"></a>
+     <!--onClick="trackLink(this, '/obama');return false;"-->
+      ><img class="sliced" src="/static/images/obama.jpg"></a>
   <div class="grid_6">
     <h1>Obama | One People</h1> is a celebration of the President's election. With the MIT Senseable City Lab we analyzed the activity of
     the mobile phone network to characterize the movements and emotional reaction of the crowd that gathered in Washington, D.C. on January
@@ -102,7 +127,8 @@
     Obama's Inauguration Day? When did they arrive, where did they go, and how long did they stay?
   </div>
   <a class="grid_12 noborder" href="http://senseable.mit.edu/worldseyes"
-     onClick="trackLink(this, '/worldeyes');return false;"><img class="sliced" src="/static/images/worldseyes.jpg"></a>
+     <!--onClick="trackLink(this, '/worldeyes');return false;"-->
+      ><img class="sliced" src="/static/images/worldseyes.jpg"></a>
   <div class="grid_6">
     <h1>Los Ojos del Mundo</h1> is a study of contemporary tourism in the region of the Iberian Peninsula. It is based on the analysis of
     the geotagged photos that were taken by visitors in the area, and uploaded to Flickr, which allowed to uncover the evolution of the
@@ -113,7 +139,8 @@
     points of interests, as well as characterize the type of activities and trails of different nationalities.
   </div>
   <a class="grid_12 noborder" href="http://digitalwaterpavilion.com"
-     onClick="trackLink(this, '/dwp');return false;"><img class="sliced" src="/static/images/dwp.jpg"></a>
+     <!--onClick="trackLink(this, '/dwp');return false;"-->
+      ><img class="sliced" src="/static/images/dwp.jpg"></a>
   <div class="grid_6">
     <h1>Digital Water Pavillion</h1> is an interactive structure made of digitally controlled water curtains that was built in occasion of
     the World Expo in Zaragoza, Spain in 2008, under the supervision of Prof. Carlo Ratti and Prof. William Mitchell of the MIT.
@@ -124,7 +151,8 @@
     ceiling's height to avoid splashing.<span class="small right">Photo by Claudio Bonicco</span>
   </div>
   <a class="grid_12 noborder" href="http://senseable.mit.edu/nyte"
-     onClick="trackLink(this, '/nyte');return false;"><img class="sliced" src="/static/images/nyte.jpg"></a>
+     <!--onClick="trackLink(this, '/nyte');return false;"-->
+      ><img class="sliced" src="/static/images/nyte.jpg"></a>
   <div class="grid_6">
     <h1>New York Talk Exchange</h1> illustrates the global flow of information by visualizing the volumes of long distance phone calls and
     Internet data exchanged between New York and other cities around the world. The project was exhibited for four months at the Museum of
@@ -136,7 +164,8 @@
     multiethnic neighborhoods.
   </div>
   <a class="grid_12 noborder" href="http://senseable.mit.edu/wikicity/rome"
-     onClick="trackLink(this, '/wikicity');return false;"><img class="sliced" src="/static/images/wikicity.jpg"></a>
+     <!--onClick="trackLink(this, '/wikicity');return false;"-->
+      ><img class="sliced" src="/static/images/wikicity.jpg"></a>
   <div class="grid_6">
     <h1>WikiCity Rome</h1> is a real-time interactive map that was installed in Rome in occasion of the Notte Bianca to provide city
     dwellers with actionable insights about the people and public services around them. It was built to illustrate the idea of the city as a

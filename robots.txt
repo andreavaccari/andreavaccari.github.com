@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /static/images/misc/
 Disallow: /.gitignore
 Disallow: /404.html
 Disallow: /CNAME
