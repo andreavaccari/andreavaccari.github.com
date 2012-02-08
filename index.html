@@ -7,7 +7,7 @@
   <link rel="shortcut icon" href="/favicon.png">
   <link rel="stylesheet" href="/static/css/960_12.css"/>
   <link rel="stylesheet" href="/static/css/screen.css"/>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-3573861-1']);
@@ -31,6 +31,37 @@
           return false;
         }
       });
+      var sample = function(list, size) {
+        var unused = list.slice();
+        var sample = [];
+        for(var i=0; i < size; i++) {
+          sample.push(unused.splice(Math.random() * unused.length, 1)[0]);
+        }
+        return sample;
+      };
+      var items = [
+        '<li><a href="http://www.amazon.com/dp/0307887898/?tag=andrvacc0c-20"><img src="/static/books/0307887898.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/0143118757/?tag=andrvacc0c-20"><img src="/static/books/0143118757.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/0262134721/?tag=andrvacc0c-20"><img src="/static/books/0262134721.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/0374275637/?tag=andrvacc0c-20"><img src="/static/books/0374275637.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/0465026567/?tag=andrvacc0c-20"><img src="/static/books/0465026567.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/0470580097/?tag=andrvacc0c-20"><img src="/static/books/0470580097.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/0470929820/?tag=andrvacc0c-20"><img src="/static/books/0470929820.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/0470929839/?tag=andrvacc0c-20"><img src="/static/books/0470929839.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/0767908171/?tag=andrvacc0c-20"><img src="/static/books/0767908171.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/0932633439/?tag=andrvacc0c-20"><img src="/static/books/0932633439.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/140007780X/?tag=andrvacc0c-20"><img src="/static/books/140007780X.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/1430210788/?tag=andrvacc0c-20"><img src="/static/books/1430210788.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/1451648537/?tag=andrvacc0c-20"><img src="/static/books/1451648537.gif"></a></li>',
+        '<li><a href="http://www.amazon.com/dp/1568812019/?tag=andrvacc0c-20"><img src="/static/books/1568812019.gif"></a></li>'
+      ];
+      $("#more-books").click(function() {
+        $(".books").fadeOut(function() {
+          $(".books").html(sample(items, 5).join(''));
+          $(".books").fadeIn();
+        });
+      });
+      $("#more-books").click();
     });
   </script>
 </head>
@@ -39,37 +70,25 @@
 <img src="/static/images/andrea_vaccari_2.png" alt="Andrea Vaccari" style="display:none;">
 <img src="/static/images/andrea_vaccari_3.png" alt="Andrea Vaccari" style="display:none;">
 <img src="/static/images/andrea_vaccari_4.png" alt="Andrea Vaccari" style="display:none;">
+<ul class="menu">
+  <li><a class="noborder" rel="me" href="mailto:andrea@andreavaccari.com?subject=Hi Andrea!"><img src="/static/images/misc/mail.png"></a></li>
+  <li><a class="noborder" rel="me" href="/andreavaccari.pdf"><img src="/static/images/misc/resume.png"></a></li>
+  <li><a class="noborder" rel="me" href="http://twitter.com/vccr"><img src="/static/images/misc/twitter.png"></a></li>
+  <li><a class="noborder" rel="me" href="http://linkedin.com/in/andreavaccari"><img src="/static/images/misc/linkedin.png"></a></li>
+  <li><a class="noborder" rel="me" href="http://facebook.com/andvac"><img src="/static/images/misc/facebook.png"></a></li>
+  <li><a class="noborder" rel="me" href="http://plus.google.com/108731905933622470331"><img src="/static/images/misc/google.png"></a></li>
+</ul>
 <div class="container_12">
   <a class="grid_12 noborder" href="/"><img class="banner" src="/static/images/andrea.jpg"></a>
   <div class="grid_6">
     <h1><a href="/">Andrea Vaccari</a></h1> is the Cofounder and CEO of <a href="http://glancee.com">Glancee</a>, a mobile app that makes it
-    fun and safe to meet people with common friends and similar interests. Previously he worked at the Massachusetts Institute of Technology
-    and the Santa Fe Institute to investigate people's lifestyle through their interaction with digital technologies. His work has been
-    exhibited at the MoMA in New York City and the Design Museum in Barcelona, Spain.
+    easy to meet people with common friends and similar interests. Previously he worked at Google on Maps, and at MIT and SFI to investigate
+    people's lifestyle through their interaction with digital technologies. His work has been exhibited at the MoMA in New York City and the
+    Design Museum in Barcelona, Spain.
   </div>
   <div class="grid_6">
-    Andrea is also a pretty good water polo player and loves to ski in the Alps during Christmas. He travels as much as he can, and always
-    throws away a shirt whenever he buys a new one to make sure that all his stuff can fit in two suitcases.
-    <ul class="menu clearfix">
-      <li>
-        <a class="noborder" rel="me" href="mailto:andrea@andreavaccari.com?subject=Hi Andrea!"><img src="/static/images/misc/mail.png"></a>
-      </li>
-      <li>
-        <a class="noborder" rel="me" href="http://twitter.com/vccr"><img src="/static/images/misc/twitter.png"></a>
-      </li>
-      <li>
-        <a class="noborder" rel="me" href="http://facebook.com/andvac"><img src="/static/images/misc/facebook.png"></a>
-      </li>
-      <li>
-        <a class="noborder" rel="me" href="http://linkedin.com/in/andreavaccari"><img src="/static/images/misc/linkedin.png"></a>
-      </li>
-      <li>
-        <a class="noborder" rel="me" href="http://plus.google.com/108731905933622470331"><img src="/static/images/misc/google.png"></a>
-      </li>
-    </ul>
-    <div class="resume small">
-      <a href="/andreavaccari.pdf">Download my resume</a>
-    </div>
+    These are some of Andrea's favorite books (<a id="more-books">show more</a>)
+    <ul class="books"></ul>
   </div>
   <a class="grid_12 noborder" href="http://glancee.com"><img class="banner" src="/static/images/glancee.jpg"></a>
   <div class="grid_6">
