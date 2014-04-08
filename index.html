@@ -1,67 +1,35 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="Description" content="Andrea Vaccari is the cofounder and CEO of Glancee. Previously he worked at MIT, SFI, and Google."/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=0.7">
+  <meta name="description" content="Andrea Vaccari is a Product Manager at Facebook. He was Cofounder and CEO of Glancee, and worked at MIT, SFI, and Google.">
   <title>Andrea Vaccari</title>
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="stylesheet" href="/static/css/960_12.css"/>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:900|Merriweather:400">
   <link rel="stylesheet" href="/static/css/screen.css"/>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
   <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3573861-1']);
-    _gaq.push(['_setDomainName', 'andreavaccari.com']);
-    _gaq.push(['_addIgnoredRef', 'andreavaccari.com']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script');
-      ga.type = 'text/javascript';
-      ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ga, s);
-    })();
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-3573861-1', 'auto');
+    ga('send', 'pageview');
     $(function() {
-      // Modified from http://gist.github.com/1136488
-      $('a[href^="http"]:not([href*="andreavaccari.com"]),a[href^="mailto"],a[href$=".pdf"]').click(function(e) {
-        _gaq.push(['_trackEvent', 'Links', $(this).attr('href'), $(this).closest('[id!=""]').attr('id')]);
-        if (!(e.which == 2 || e.metaKey || e.ctrlKey || e.shiftKey)) {
-          setTimeout('document.location="' + $(this).attr('href') + '"', 200);
-          return false;
+      $('a[href^="http"]:not([href*="andreavaccari.com"]),a[href^="mailto"],a[href$=".pdf"],a[href$=".zip"]').mousedown(function(e) {
+        var href = $(this).attr('href'), target = $(this).attr('target');
+        if (e.which == 1 && !e.ctrlKey && !e.metaKey && !e.shiftKey && target != '_blank') {
+          ga('send', 'event', 'Links', $(this).attr('href'), $(this).closest('[id!=""]').attr('id'),
+            {'nonInteraction': 1, 'hitCallback': function() { document.location = href; },});
+          e.preventDefault();
+        } else {
+          ga('send', 'event', 'Links', $(this).attr('href'), $(this).closest('[id!=""]').attr('id'),
+            {'nonInteraction': 1,});
         }
       });
-      var sample = function(list, size) {
-        var unused = list.slice();
-        var sample = [];
-        for(var i=0; i < size; i++) {
-          sample.push(unused.splice(Math.random() * unused.length, 1)[0]);
-        }
-        return sample;
-      };
-      var items = [
-        '<li><a href="http://www.amazon.com/dp/0307887898/?tag=andrvacc0c-20"><img src="/static/books/0307887898.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/0143118757/?tag=andrvacc0c-20"><img src="/static/books/0143118757.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/0262134721/?tag=andrvacc0c-20"><img src="/static/books/0262134721.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/0374275637/?tag=andrvacc0c-20"><img src="/static/books/0374275637.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/0465026567/?tag=andrvacc0c-20"><img src="/static/books/0465026567.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/0470580097/?tag=andrvacc0c-20"><img src="/static/books/0470580097.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/0470929820/?tag=andrvacc0c-20"><img src="/static/books/0470929820.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/0470929839/?tag=andrvacc0c-20"><img src="/static/books/0470929839.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/0767908171/?tag=andrvacc0c-20"><img src="/static/books/0767908171.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/0932633439/?tag=andrvacc0c-20"><img src="/static/books/0932633439.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/140007780X/?tag=andrvacc0c-20"><img src="/static/books/140007780X.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/1430210788/?tag=andrvacc0c-20"><img src="/static/books/1430210788.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/1451648537/?tag=andrvacc0c-20"><img src="/static/books/1451648537.gif"></a></li>',
-        '<li><a href="http://www.amazon.com/dp/1568812019/?tag=andrvacc0c-20"><img src="/static/books/1568812019.gif"></a></li>'
-      ];
-      $("#more-books").click(function() {
-        $(".books").fadeOut(function() {
-          $(".books").html(sample(items, 5).join(''));
-          $(".books").fadeIn();
-        });
-      });
-      $("#more-books").click();
     });
   </script>
 </head>
@@ -70,90 +38,73 @@
 <img src="/static/images/andrea_vaccari_2.png" alt="Andrea Vaccari" style="display:none;">
 <img src="/static/images/andrea_vaccari_3.png" alt="Andrea Vaccari" style="display:none;">
 <img src="/static/images/andrea_vaccari_4.png" alt="Andrea Vaccari" style="display:none;">
-<ul class="menu">
-  <li><a class="noborder" rel="me" href="mailto:andrea@andreavaccari.com?subject=Hi Andrea!"><img src="/static/images/misc/mail.png"></a></li>
-  <li><a class="noborder" rel="me" href="/andreavaccari.pdf"><img src="/static/images/misc/resume.png"></a></li>
-  <li><a class="noborder" rel="me" href="http://twitter.com/vccr"><img src="/static/images/misc/twitter.png"></a></li>
-  <li><a class="noborder" rel="me" href="http://linkedin.com/in/andreavaccari"><img src="/static/images/misc/linkedin.png"></a></li>
-  <li><a class="noborder" rel="me" href="http://facebook.com/andvac"><img src="/static/images/misc/facebook.png"></a></li>
-  <li><a class="noborder" rel="me" href="http://plus.google.com/108731905933622470331"><img src="/static/images/misc/google.png"></a></li>
-</ul>
-<div class="container_12">
-  <a class="grid_12 noborder" href="/"><img class="banner" src="/static/images/andrea.jpg"></a>
-  <div class="grid_6">
-    <h1><a href="/">Andrea Vaccari</a></h1> is the Cofounder and CEO of <a href="http://glancee.com">Glancee</a>, a mobile app that makes it
-    easy to meet people with common friends and similar interests. Previously he worked at Google on Maps, and at MIT and SFI to investigate
-    people's lifestyle through their interaction with digital technologies. His work has been exhibited at the MoMA in New York City and the
-    Design Museum in Barcelona, Spain.
+<img src="/static/images/andrea_vaccari_5.png" alt="Andrea Vaccari" style="display:none;">
+<img src="/static/images/andrea_vaccari_6.png" alt="Andrea Vaccari" style="display:none;">
+<img src="/static/images/andrea_vaccari_7.png" alt="Andrea Vaccari" style="display:none;">
+<img src="/static/images/andrea_vaccari_8.png" alt="Andrea Vaccari" style="display:none;">
+<div class="container">
+  <a class="banner col-xs-12" href="/"><img src="/static/images/andrea.jpg" alt="Andrea Vaccari"></a>
+  <div class="col-xs-12 col-md-6 hyphenate">
+    <span class="bold"> My name is Andrea Vaccari</span> and I am a Product Manager at Facebook. Previously I was the Cofounder and CEO of Glancee, an app that made it easy to meet nearby people with mutual friends and similar interests. Glancee was acquired by Facebook in 2012. Before that I briefly worked at Google, building internal tools for Google Maps.
   </div>
-  <div class="grid_6">
-    These are some of Andrea's favorite books (<a id="more-books">show more</a>)
-    <ul class="books"></ul>
+  <div class="col-xs-12 col-md-6 hyphenate">
+    I also spent a lot of time in academia. I attended Politecnico di Milano in Italy and University of Illinois in Chicago. I have done research at the Massachusetts Institute of Technology and the Santa Fe Institute. My work has been exhibited at the MoMA in New York City and the Design Museum in Barcelona.
   </div>
-  <a class="grid_12 noborder" href="http://glancee.com"><img class="banner" src="/static/images/glancee.jpg"></a>
-  <div class="grid_6">
-    <h1><a href="http://glancee.com">Glancee</a></h1> is a location-based mobile app that helps you discover the hidden connections you
-    share with the people around you. Glancee highlights people that have friends in common, that went to the same school you attended, that
-    work in your same company, or that share interests similar to yours.
+  <div class="col-xs-12">
+    <div class="link col-xs-6 col-sm-3"><a class="bold" target="_blank" href="http://www.facebook.com/andvac">Facebook</a></div>
+    <div class="link col-xs-6 col-sm-3"><a class="bold" target="_blank" href="http://www.linkedin.com/in/andreavaccari">LinkedIn</a></div>
+    <div class="link col-xs-6 col-sm-3"><a class="bold" target="_blank" href="http://www.google.com/+andreavaccari">Google</a></div>
+    <div class="link col-xs-6 col-sm-3"><a class="bold" target="_blank" href="http://www.twitter.com/vccr">Twitter</a></div>
   </div>
-  <div class="grid_6">
-    You can use Glancee to explore the profiles of people nearby, or you can keep it in your pocket and be notified if someone interesting
-    is nearby. When you notice someone, text, call, and meet up for coffee. Create new, meaningful connections with people important to you.
-    <span class="small right">Photo by Ambrogio Bergamaschi</span>
+  <a class="banner col-xs-12" href="http://glancee.com"><img src="/static/images/glancee.jpg" alt="Glancee"></a>
+  <div class="col-xs-12 col-md-6 hyphenate">
+    <a class="bold" href="http://www.glancee.com">Glancee</a> is a location-based app that helps you discover the hidden connections you share with the people around you. Glancee highlights people who have friends in common with you, attend your school, work in your company, or simply share interests similar to yours.
   </div>
-  <a class="grid_12 noborder" href="http://senseable.mit.edu/obama"><img class="banner" src="/static/images/obama.jpg"></a>
-  <div class="grid_6">
-    <h1><a href="http://senseable.mit.edu/obama">Obama | One People</a></h1> is a celebration of the President's election. With the MIT
-    Senseable City Lab we analyzed the activity of the mobile phone network to characterize the movements and emotional reaction of the
-    crowd that gathered in Washington, D.C. on January 20, 2009.
+  <div class="col-xs-12 col-md-6 hyphenate">
+    You can use Glancee to explore the profiles of people in your area, or you can keep it in your pocket and be notified when someone interesting is nearby. When you notice someone, message them and meet up for coffee. Create new, meaningful connections with people important to you.
   </div>
-  <div class="grid_6">
-    The results of our data analyses are presented in two visualizations that answer the questions: Who was in Washington, D.C. during
-    Obama's Inauguration Day? When did they arrive, where did they go, and how long did they stay?
+  <a class="banner col-xs-12" href="http://senseable.mit.edu/obama"><img src="/static/images/obama.jpg" alt="Obama | One People"></a>
+  <div class="col-xs-12 col-md-6 hyphenate">
+    <a class="bold" href="http://senseable.mit.edu/obama">Obama | One People</a> is a celebration of the President's first election. It is an analysis of the cell phone network activity in Washington, D.C. on January 20, 2009 to characterize the movements and reactions of the crowd that gathered in the capital for the occasion.
   </div>
-  <a class="grid_12 noborder" href="http://senseable.mit.edu/worldseyes"><img class="banner" src="/static/images/worldseyes.jpg"></a>
-  <div class="grid_6">
-    <h1><a href="http://senseable.mit.edu/worldseyes">The World's Eyes</a></h1> is a study of contemporary tourism in the region of the
-    Iberian Peninsula. It is based on the analysis of the geotagged photos that were taken by visitors in the area, and uploaded to Flickr,
-    which allowed to uncover the evolution of the presence and flows of tourists.
+  <div class="col-xs-12 col-md-6 hyphenate">
+    The results of these data analyses are presented in two visualizations that answer the questions: Who was in Washington, D.C. during Obama's Inauguration Day? When did they arrive, where did they go, and how long did they stay in the city?
   </div>
-  <div class="grid_6">
-    The analysis and mapping of this data was useful at multiple levels. It allowed to quantify the popularity of leisure cities and their
-    points of interests, as well as characterize the type of activities and trails of different nationalities.
+  <a class="banner col-xs-12" href="http://senseable.mit.edu/worldseyes"><img src="/static/images/worldseyes.jpg" alt="World's Eyes"></a>
+  <div class="col-xs-12 col-md-6 hyphenate">
+    <a class="bold" href="http://senseable.mit.edu/worldseyes">World's Eyes</a> is a study of contemporary tourism in the region of the Iberian Peninsula. It is based on the analysis of geotagged photos taken in the area and uploaded to Flickr, which allowed to uncover the evolution of the presence and flows of tourists.
   </div>
-  <a class="grid_12 noborder" href="http://digitalwaterpavilion.com"><img class="banner" src="/static/images/dwp.jpg"></a>
-  <div class="grid_6">
-    <h1><a href="http://digitalwaterpavilion.com">Digital Water Pavillion</a></h1> is an interactive structure made of digitally controlled
-    water curtains that was built in occasion of the World Expo in Zaragoza, Spain in 2008, under the supervision of Prof. Carlo Ratti and
-    Prof. William Mitchell of the MIT.
+  <div class="col-xs-12 col-md-6 hyphenate">
+    The analysis and mapping of this data was useful at multiple levels. It allowed to quantify the popularity of leisure cities and their points of interests, as well as characterize the type of activities and trails of visitors of different nationalities.
   </div>
-  <div class="grid_6">
-    The project is the first example of reconfigurable architecture that allows spaces to expand and shrink based on necessity and use.
-    Behind the scences, a real-time control system uses sensors to detect the presence of people and open passages, or to control the
-    ceiling's height to avoid splashing.<span class="small right">Photo by Claudio Bonicco</span>
+  <a class="banner col-xs-12" href="http://www.digitalwaterpavilion.com/wp_index01.swf"><img src="/static/images/dwp.jpg" alt="Digital Water Pavillion"></a>
+  <div class="col-xs-12 col-md-6 hyphenate">
+    <a class="bold" href="http://www.digitalwaterpavilion.com/wp_index01.swf">Digital Water Pavillion</a> is an interactive structure made of digitally controlled water curtains that was built in occasion of the World Expo in Zaragoza, Spain in 2008, under the supervision of Prof. Carlo Ratti and Prof. William Mitchell of MIT.
   </div>
-  <a class="grid_12 noborder" href="http://senseable.mit.edu/nyte"><img class="banner" src="/static/images/nyte.jpg"></a>
-  <div class="grid_6">
-    <h1><a href="http://senseable.mit.edu/nyte">New York Talk Exchange</a></h1> illustrates the global flow of information by visualizing
-    the volumes of long distance phone calls and Internet data exchanged between New York and other cities around the world. The project was
-    exhibited for four months at the Museum of Modern Art in New York for the Design and Elastic Mind exhibition.
+  <div class="col-xs-12 col-md-6 hyphenate">
+    The project is the first example of reconfigurable architecture that allows spaces to expand and shrink based on necessity and use. A real-time control system uses sensors to detect people and open passages, or to control the ceiling's height to avoid splashing.
   </div>
-  <div class="grid_6">
-    NYTE involved the analysis of large data sets of telecommunication logs at the scale of the local exchange. Our results revealed the
-    relationships that New Yorkers entertain with the rest of the world, and showed how behavioral data can be used to better profile
-    multiethnic neighborhoods.
+  <a class="banner col-xs-12" href="http://senseable.mit.edu/nyte"><img src="/static/images/nyte.jpg" alt="New York Talk Exchange"></a>
+  <div class="col-xs-12 col-md-6 hyphenate">
+    <a class="bold" href="http://senseable.mit.edu/nyte">New York Talk Exchange</a> illustrates the global flow of information by visualizing phone calls and Internet traffic between New York and other cities around the world. The project was exhibited at the Museum of Modern Art in New York for the Design and Elastic Mind exhibition.
   </div>
-  <a class="grid_12 noborder" href="http://senseable.mit.edu/wikicity/rome"><img class="banner" src="/static/images/wikicity.jpg"></a>
-  <div class="grid_6">
-    <h1><a href="http://senseable.mit.edu/wikicity/rome">WikiCity Rome</a></h1> is a real-time interactive map that was installed in Rome in
-    occasion of the Notte Bianca to provide city dwellers with actionable insights about the people and public services around them. It was
-    built to illustrate the idea of the city as a real-time control system.
+  <div class="col-xs-12 col-md-6 hyphenate">
+    NYTE uses large data sets of telecommunication logs at the scale of the local exchange. It reveals the relationships that New Yorkers entertain with the rest of the world, and shows how behavioral data can be used to better profile multiethnic neighborhoods.
   </div>
-  <div class="grid_6">
-    The map showed the estimated distribution of people in the area (through cellphone activity analysis), the position of busses and cabs,
-    and real-time updates by the journalists of the major Italian newspaper which were broadcasted live from the location of the events.
+  <a class="banner col-xs-12" href="http://senseable.mit.edu/wikicity/rome"><img src="/static/images/wikicity.jpg" alt="WikiCity"></a>
+  <div class="col-xs-12 col-md-6 hyphenate">
+    <a class="bold" href="http://senseable.mit.edu/wikicity/rome">WikiCity</a> is a real-time interactive map built for the City of Rome in occasion of the Notte Bianca of 2007. It provides city dwellers with actionable insights about the people and public services around them. It is an illustration of the idea of the city as a real-time control system.
   </div>
-  <div class="grid_12 copyright">☺</div>
+  <div class="col-xs-12 col-md-6 hyphenate">
+    The map shows the estimated distribution of people based on cell phone network analysis. It also shows the position of busses and cabs, and updates by the journalists of La Repubblica, the major Italian newspaper, which are broadcasted live from the location of each event.
+  </div>
+  <div class="col-xs-12">
+    <div class="link col-xs-6 col-sm-3"><a class="bold" target="_blank" href="http://www.facebook.com/andvac">Facebook</a></div>
+    <div class="link col-xs-6 col-sm-3"><a class="bold" target="_blank" href="http://www.linkedin.com/in/andreavaccari">LinkedIn</a></div>
+    <div class="link col-xs-6 col-sm-3"><a class="bold" target="_blank" href="http://www.google.com/+andreavaccari">Google</a></div>
+    <div class="link col-xs-6 col-sm-3"><a class="bold" target="_blank" href="http://www.twitter.com/vccr">Twitter</a></div>
+  </div>
+  <div class="col-xs-12 copyright">✌</div>
 </div>
 </body>
 </html>
