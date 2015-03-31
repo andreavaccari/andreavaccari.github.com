@@ -16,11 +16,11 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #449;
+  color: #222;
   text-decoration: none;
 }
 .banner img {
-  border-bottom: 6px solid #000;
+  border-bottom: 6px solid #222;
   margin: 80px 0 20px;
   width: 100%;
 }
