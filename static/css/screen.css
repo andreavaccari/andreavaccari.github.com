@@ -11,18 +11,17 @@ body {
   line-height: 34px ;
   text-align: justify;
 }
-a {
+a, a:link, a:hover, a:active, a:visited {
   color: #222;
   text-decoration: none;
 }
-a:hover {
-  color: #222;
-  text-decoration: none;
-}
-.banner img {
+.banner {
   border-bottom: 6px solid #222;
   margin: 80px 0 20px;
   width: 100%;
+}
+.description {
+  padding-top: 20px;
 }
 .bold {
   font-family: Lato, Arial, sans-serif;
@@ -38,7 +37,7 @@ a:hover {
   border-bottom: 6px solid #222;
   padding-bottom: 6px;
 }
-.copyright {
+.footer {
   font-size: 20px;
   font-weight: 900;
   margin: 40px 0;
